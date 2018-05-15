@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://service.retail.efact/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="TransactionServiceImplService" targetNamespace="http://service.retail.efact/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://dev-gw.efact.pe:8686/connector_retail/TransactionService65fda860de4211e4b9d61681e6b88ec1?xsd=1" namespace="http://service.retail.efact/" />
+    </xsd:schema>
+  </types>
+  <message name="sendPing">
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendPingResponse">
+    <part name="responseSendPing" type="tns:transactionResponseArray" />
+  </message>
+  <message name="sendDespatchAdvice">
+    <part name="file" type="xsd:base64Binary" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendDespatchAdviceResponse">
+    <part name="responseSendDespatchAdvice" type="tns:transactionResponseArray" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="sendInvoice">
+    <part name="file" type="xsd:base64Binary" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendInvoiceResponse">
+    <part name="responseSendInvoice" type="tns:transactionResponseArray" />
+  </message>
+  <message name="sendBoleta">
+    <part name="file" type="xsd:base64Binary" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendBoletaResponse">
+    <part name="responseSendBoleta" type="tns:transactionResponseArray" />
+  </message>
+  <message name="sendCreditNote">
+    <part name="file" type="xsd:base64Binary" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendCreditNoteResponse">
+    <part name="responseSendCreditNote" type="tns:transactionResponseArray" />
+  </message>
+  <message name="sendDebitNote">
+    <part name="file" type="xsd:base64Binary" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendDebitNoteResponse">
+    <part name="responseSendDebitNote" type="tns:transactionResponseArray" />
+  </message>
+  <message name="sendVoidedDocument">
+    <part name="file" type="xsd:base64Binary" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendVoidedDocumentResponse">
+    <part name="responseVoidedDocument" type="tns:transactionResponseArray" />
+  </message>
+  <message name="sendPerception">
+    <part name="file" type="xsd:base64Binary" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendPerceptionResponse">
+    <part name="responseSendPerception" type="tns:transactionResponseArray" />
+  </message>
+  <message name="sendRetention">
+    <part name="file" type="xsd:base64Binary" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendRetentionResponse">
+    <part name="responseSendRetention" type="tns:transactionResponseArray" />
+  </message>
+  <message name="getStatus">
+    <part name="documentType" type="xsd:int" />
+    <part name="identifier" type="xsd:string" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="getStatusResponse">
+    <part name="responseGetStatus" type="tns:transactionResult" />
+  </message>
+  <message name="sendVoidedDocumentXml">
+    <part name="file" type="xsd:base64Binary" />
+    <part name="Authorization" element="tns:Authorization" />
+  </message>
+  <message name="sendVoidedDocumentXmlResponse">
+    <part name="responseVoidedDocumentXml" type="tns:transactionResponseArray" />
+  </message>
+  <portType name="TransactionService">
+    <operation name="sendPing">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendPingRequest" message="tns:sendPing" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendPingResponse" message="tns:sendPingResponse" />
+    </operation>
+    <operation name="sendDespatchAdvice" parameterOrder="Authorization file">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendDespatchAdviceRequest" message="tns:sendDespatchAdvice" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendDespatchAdviceResponse" message="tns:sendDespatchAdviceResponse" />
+      <fault wsam:Action="http://service.retail.efact/TransactionService/sendDespatchAdvice/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="sendInvoice" parameterOrder="Authorization file">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendInvoiceRequest" message="tns:sendInvoice" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendInvoiceResponse" message="tns:sendInvoiceResponse" />
+      <fault wsam:Action="http://service.retail.efact/TransactionService/sendInvoice/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="sendBoleta" parameterOrder="Authorization file">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendBoletaRequest" message="tns:sendBoleta" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendBoletaResponse" message="tns:sendBoletaResponse" />
+      <fault wsam:Action="http://service.retail.efact/TransactionService/sendBoleta/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="sendCreditNote" parameterOrder="Authorization file">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendCreditNoteRequest" message="tns:sendCreditNote" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendCreditNoteResponse" message="tns:sendCreditNoteResponse" />
+      <fault wsam:Action="http://service.retail.efact/TransactionService/sendCreditNote/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="sendDebitNote" parameterOrder="Authorization file">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendDebitNoteRequest" message="tns:sendDebitNote" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendDebitNoteResponse" message="tns:sendDebitNoteResponse" />
+      <fault wsam:Action="http://service.retail.efact/TransactionService/sendDebitNote/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="sendVoidedDocument" parameterOrder="Authorization file">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendVoidedDocumentRequest" message="tns:sendVoidedDocument" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendVoidedDocumentResponse" message="tns:sendVoidedDocumentResponse" />
+    </operation>
+    <operation name="sendPerception" parameterOrder="Authorization file">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendPerceptionRequest" message="tns:sendPerception" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendPerceptionResponse" message="tns:sendPerceptionResponse" />
+      <fault wsam:Action="http://service.retail.efact/TransactionService/sendPerception/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="sendRetention" parameterOrder="Authorization file">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendRetentionRequest" message="tns:sendRetention" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendRetentionResponse" message="tns:sendRetentionResponse" />
+      <fault wsam:Action="http://service.retail.efact/TransactionService/sendRetention/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getStatus" parameterOrder="Authorization documentType identifier">
+      <input wsam:Action="http://service.retail.efact/TransactionService/getStatusRequest" message="tns:getStatus" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/getStatusResponse" message="tns:getStatusResponse" />
+    </operation>
+    <operation name="sendVoidedDocumentXml" parameterOrder="Authorization file">
+      <input wsam:Action="http://service.retail.efact/TransactionService/sendVoidedDocumentXmlRequest" message="tns:sendVoidedDocumentXml" />
+      <output wsam:Action="http://service.retail.efact/TransactionService/sendVoidedDocumentXmlResponse" message="tns:sendVoidedDocumentXmlResponse" />
+    </operation>
+  </portType>
+  <binding name="TransactionServiceImplPortBinding" type="tns:TransactionService">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="sendPing">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="" />
+        <soap12:header message="tns:sendPing" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+    </operation>
+    <operation name="sendDespatchAdvice">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="file" />
+        <soap12:header message="tns:sendDespatchAdvice" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+      <fault name="Exception">
+        <soap12:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendInvoice">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="file" />
+        <soap12:header message="tns:sendInvoice" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+      <fault name="Exception">
+        <soap12:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendBoleta">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="file" />
+        <soap12:header message="tns:sendBoleta" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+      <fault name="Exception">
+        <soap12:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendCreditNote">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="file" />
+        <soap12:header message="tns:sendCreditNote" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+      <fault name="Exception">
+        <soap12:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendDebitNote">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="file" />
+        <soap12:header message="tns:sendDebitNote" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+      <fault name="Exception">
+        <soap12:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendVoidedDocument">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="file" />
+        <soap12:header message="tns:sendVoidedDocument" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+    </operation>
+    <operation name="sendPerception">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="file" />
+        <soap12:header message="tns:sendPerception" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+      <fault name="Exception">
+        <soap12:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendRetention">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="file" />
+        <soap12:header message="tns:sendRetention" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+      <fault name="Exception">
+        <soap12:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getStatus">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="documentType identifier" />
+        <soap12:header message="tns:getStatus" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+    </operation>
+    <operation name="sendVoidedDocumentXml">
+      <soap12:operation soapAction="" />
+      <input>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" parts="file" />
+        <soap12:header message="tns:sendVoidedDocumentXml" part="Authorization" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" namespace="http://service.retail.efact/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="TransactionServiceImplService">
+    <port name="TransactionServiceImplPort" binding="tns:TransactionServiceImplPortBinding">
+      <soap12:address location="http://dev-gw.efact.pe:8686/connector_retail/TransactionService65fda860de4211e4b9d61681e6b88ec1" />
+    </port>
+  </service>
+</definitions>

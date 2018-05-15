@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3b245fed-1516-4f8e-bef8-9b5fd82f057d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://dev-gw.efact.pe:8686/connector_retail/TransactionService65fda860de4211e4b9d61681e6b88ec1?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TransactionServiceImplService.wsdl" MetadataType="Wsdl" ID="056c69e4-95a2-4a86-a979-c8356744892b" SourceId="1" SourceUrl="http://dev-gw.efact.pe:8686/connector_retail/TransactionService65fda860de4211e4b9d61681e6b88ec1?wsdl" />
+    <MetadataFile FileName="TransactionService65fda860de4211e4b9d61681e6b88ec1.xsd" MetadataType="Schema" ID="d876d131-b2bc-4af5-8eef-2554df3c1030" SourceId="1" SourceUrl="http://dev-gw.efact.pe:8686/connector_retail/TransactionService65fda860de4211e4b9d61681e6b88ec1?xsd=1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

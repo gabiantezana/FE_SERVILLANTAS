@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://service.retail.efact/" targetNamespace="http://service.retail.efact/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Authorization" nillable="true" type="tns:authorization" />
+  <xs:element name="Exception" type="tns:Exception" />
+  <xs:complexType name="authorization">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="user" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identifier" type="xs:string" />
+      <xs:element minOccurs="0" name="outString" type="xs:string" />
+      <xs:element name="responseCode" type="xs:int" />
+      <xs:element minOccurs="0" name="uuid" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transactionResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cdrFile" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="digestValue" type="xs:string" />
+      <xs:element minOccurs="0" name="identifier" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+      <xs:element minOccurs="0" name="outString" type="xs:string" />
+      <xs:element minOccurs="0" name="pdfFile" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+      <xs:element minOccurs="0" name="xmlSigned" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transactionResponseArray" final="#all">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:transactionResponse" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
